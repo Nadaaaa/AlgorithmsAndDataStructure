@@ -84,6 +84,9 @@ public class LinkedList {
 
     public int findValue(int Index) {
         Node TempNode = Head;
+        for (int i=0;i<Length ;i++){
+            
+        }
         return 0;
     }
 
