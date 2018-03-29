@@ -36,12 +36,19 @@ public class AlgorithmsAndDataStructure {
         System.out.println(linkedList.isEmpty());
         //System.out.println(linkedList.getLength());
         linkedList.print();
-        System.out.println("Hello");
-        linkedList.insertAt(3, 5);
-        linkedList.insertAt(0, 15);
+        //System.out.println("insert");
+//        linkedList.insertAt(2, 2);
+//        linkedList.insertAt(3, 3);
+//        linkedList.insertAt(6, 6);
+        //linkedList.insertAt(1, 15);
+        //linkedList.print();
+
+        System.out.println("delete");
+        linkedList.deleteAt(3);
+        linkedList.deleteAt(1);
         linkedList.print();
-        
-        System.out.println(linkedList.isExist(30));
+
+        System.out.println(linkedList.isExist(90));
     }
 
 }

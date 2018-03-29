@@ -44,32 +44,69 @@ public class LinkedList {
     }
 
     public void insertAt(int Index, int Value) {
+        try {
+            Node TempNode = Head;
+            Node ToBeInsertedNode = new Node(Value, null);
+            Index -= 1;
+            if (Index == 0) {
+                ToBeInsertedNode.Next = TempNode;
+                Head = ToBeInsertedNode;
+            } else {
+                int Cnt = 0;
+                while (Cnt < Index - 1) {
+                    TempNode = TempNode.Next;
+                    Cnt++;
+                }
+            }
+            ToBeInsertedNode.Next = TempNode.Next;
+            TempNode.Next = ToBeInsertedNode;
+            Length++;
+        } catch (NullPointerException e) {
+            System.out.println("you have exceed the length of the list");
+        }
+    }
+
+    public boolean isExist(int Value) {
         Node TempNode = Head;
-        Node ToBeInsertedNode = new Node(Value, null);
-        if (Index == 0) {
-            ToBeInsertedNode.Next = TempNode;
-            Head = ToBeInsertedNode;
+        boolean isExist = false;
+        while (TempNode.Next != null) {
+            if (TempNode.Data == Value) {
+                isExist = true;
+                break;
+            } else {
+                TempNode = TempNode.Next;
+            }
+        }
+        return isExist;
+    }
+
+    public void print() {
+        Node TempNode = Head;
+        for (int i = 0; i < Length; i++) {
+            System.out.println(TempNode.Data);
+            TempNode = TempNode.Next;
+        }
+    }
+
+    public void deleteAt(int Index) {
+        Node TempNode = Head;
+        Node ToBeDeletedNode;
+        if (Index == 1) {
+            Head = TempNode.Next;
         } else {
             int Cnt = 1;
             while (Cnt < Index - 1) {
                 TempNode = TempNode.Next;
                 Cnt++;
             }
-            ToBeInsertedNode.Next = TempNode.Next;
-            TempNode.Next = ToBeInsertedNode;
+            ToBeDeletedNode = TempNode.Next;
+            TempNode.Next = ToBeDeletedNode.Next;
         }
-        Length++;
+        Length--;
     }
 
-    public boolean isExist(int Value) {
-        Node TempNode = Head;
-        boolean isExist = false;
-        while (TempNode.Data != Value) {
-            TempNode = TempNode.Next;
-            isExist = true;
-            break;
-        }
-        return isExist;
+    public void clear() {
+
     }
 
     public int findIndex(int Value) {
@@ -84,18 +121,10 @@ public class LinkedList {
 
     public int findValue(int Index) {
         Node TempNode = Head;
-        for (int i=0;i<Length ;i++){
-            
+        for (int i = 0; i < Length; i++) {
+
         }
         return 0;
-    }
-
-    public void print() {
-        Node TempNode = Head;
-        for (int i = 0; i < Length; i++) {
-            System.out.println(TempNode.Data);
-            TempNode = TempNode.Next;
-        }
     }
 
 }
