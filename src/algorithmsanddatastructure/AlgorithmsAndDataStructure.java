@@ -28,27 +28,40 @@ public class AlgorithmsAndDataStructure {
         // System.out.println("HI");
         LinkedList linkedList = new LinkedList();
         System.out.println(linkedList.isEmpty());
+        linkedList.append(10);
         linkedList.append(20);
         linkedList.append(30);
-        linkedList.append(60);
-        linkedList.append(90);
+        linkedList.append(40);
         //linkedList.append(50);
         System.out.println(linkedList.isEmpty());
         //System.out.println(linkedList.getLength());
         linkedList.print();
-        //System.out.println("insert");
-//        linkedList.insertAt(2, 2);
-//        linkedList.insertAt(3, 3);
-//        linkedList.insertAt(6, 6);
-        //linkedList.insertAt(1, 15);
-        //linkedList.print();
 
-        System.out.println("delete");
-        linkedList.deleteAt(3);
-        linkedList.deleteAt(1);
+//        System.out.println("Test insert At Function");
+//        linkedList.insertAt(0, 2);
+//        linkedList.insertAt(4, 3);
+//        linkedList.insertAt(5, 6);
+//        linkedList.insertAt(12, 15);
+//        linkedList.print();
+
+//        System.out.println("Test delete At Function");
+//        linkedList.deleteAt(3);
+//        linkedList.deleteAt(1);
+//        linkedList.deleteAt(0);
+//        linkedList.deleteAt(7);
+//        linkedList.print();
+        
+        System.out.println("Test Clear Function");
+        linkedList.clear();
         linkedList.print();
+        System.out.println(linkedList.Length());
 
-        System.out.println(linkedList.isExist(90));
+//        System.out.println("Test Is Exist Function");
+//        System.out.println(linkedList.isExist(10));
+//        System.out.println(linkedList.isExist(20));
+//        System.out.println(linkedList.isExist(30));
+//        System.out.println(linkedList.isExist(40));
+//        System.out.println(linkedList.isExist(50));
     }
 
 }

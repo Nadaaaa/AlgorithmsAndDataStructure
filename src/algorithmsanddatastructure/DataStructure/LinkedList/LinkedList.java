@@ -21,7 +21,7 @@ public class LinkedList {
         this.Length = 0;
     }
 
-    public int getLength() {
+    public int Length() {
         return Length;
     }
 
@@ -44,7 +44,9 @@ public class LinkedList {
     }
 
     public void insertAt(int Index, int Value) {
-        try {
+        if (Index == 0 | Index > Length) {
+            System.out.println("The Range of the list is From 1 to " + Length);
+        } else {
             Node TempNode = Head;
             Node ToBeInsertedNode = new Node(Value, null);
             Index -= 1;
@@ -57,19 +59,17 @@ public class LinkedList {
                     TempNode = TempNode.Next;
                     Cnt++;
                 }
+                ToBeInsertedNode.Next = TempNode.Next;
+                TempNode.Next = ToBeInsertedNode;
             }
-            ToBeInsertedNode.Next = TempNode.Next;
-            TempNode.Next = ToBeInsertedNode;
             Length++;
-        } catch (NullPointerException e) {
-            System.out.println("you have exceed the length of the list");
         }
     }
 
     public boolean isExist(int Value) {
         Node TempNode = Head;
         boolean isExist = false;
-        while (TempNode.Next != null) {
+        for (int i = 0; i < Length; i++) {
             if (TempNode.Data == Value) {
                 isExist = true;
                 break;
@@ -89,42 +89,31 @@ public class LinkedList {
     }
 
     public void deleteAt(int Index) {
-        Node TempNode = Head;
-        Node ToBeDeletedNode;
-        if (Index == 1) {
-            Head = TempNode.Next;
+        if (Index <= 0 | Index > Length) {
+            System.out.println("This Element Cannot be Deleted, The Length of the list is " + Length);
         } else {
-            int Cnt = 1;
-            while (Cnt < Index - 1) {
-                TempNode = TempNode.Next;
-                Cnt++;
+            Node TempNode = Head;
+            Node ToBeDeletedNode;
+            Index--;
+            if (Index == 0) {
+                Head = TempNode.Next;
+            } else {
+                int Cnt = 0;
+                while (Cnt < Index - 1) {
+                    TempNode = TempNode.Next;
+                    Cnt++;
+                }
+                ToBeDeletedNode = TempNode.Next;
+                TempNode.Next = ToBeDeletedNode.Next;
             }
-            ToBeDeletedNode = TempNode.Next;
-            TempNode.Next = ToBeDeletedNode.Next;
+            Length--;
         }
-        Length--;
+
     }
 
     public void clear() {
-
-    }
-
-    public int findIndex(int Value) {
-        Node TempNode = Head;
-        int Cnt = 1;
-        while (TempNode.Data != Value) {
-            TempNode = TempNode.Next;
-            Cnt++;
+        while (Length > 0) {
+            deleteAt(1);
         }
-        return Cnt;
     }
-
-    public int findValue(int Index) {
-        Node TempNode = Head;
-        for (int i = 0; i < Length; i++) {
-
-        }
-        return 0;
-    }
-
 }
