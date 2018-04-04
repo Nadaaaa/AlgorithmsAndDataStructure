@@ -5,7 +5,6 @@
  */
 package algorithmsanddatastructure;
 
-import java.util.Scanner;
 import algorithmsanddatastructure.DataStructure.LinkedList.LinkedList;
 
 /**
@@ -26,7 +25,8 @@ public class AlgorithmsAndDataStructure {
 ////once finished
 //        reader.close();
         // System.out.println("HI");
-        LinkedList linkedList = new LinkedList();
+        LinkedList<Integer> linkedList;
+        linkedList = new LinkedList<>();
         System.out.println(linkedList.isEmpty());
         linkedList.append(10);
         linkedList.append(20);
@@ -37,31 +37,31 @@ public class AlgorithmsAndDataStructure {
         //System.out.println(linkedList.getLength());
         linkedList.print();
 
-//        System.out.println("Test insert At Function");
-//        linkedList.insertAt(0, 2);
-//        linkedList.insertAt(4, 3);
-//        linkedList.insertAt(5, 6);
-//        linkedList.insertAt(12, 15);
-//        linkedList.print();
+        System.out.println("Test insert At Function");
+        linkedList.insertAt(0, 2);
+        linkedList.insertAt(4, 3);
+        linkedList.insertAt(5, 6);
+        linkedList.insertAt(12, 15);
+        linkedList.print();
 
-//        System.out.println("Test delete At Function");
-//        linkedList.deleteAt(3);
-//        linkedList.deleteAt(1);
-//        linkedList.deleteAt(0);
-//        linkedList.deleteAt(7);
-//        linkedList.print();
+        System.out.println("Test delete At Function");
+        linkedList.deleteAt(3);
+        linkedList.deleteAt(1);
+        linkedList.deleteAt(0);
+        linkedList.deleteAt(7);
+        linkedList.print();
         
         System.out.println("Test Clear Function");
         linkedList.clear();
         linkedList.print();
         System.out.println(linkedList.Length());
 
-//        System.out.println("Test Is Exist Function");
-//        System.out.println(linkedList.isExist(10));
-//        System.out.println(linkedList.isExist(20));
-//        System.out.println(linkedList.isExist(30));
-//        System.out.println(linkedList.isExist(40));
-//        System.out.println(linkedList.isExist(50));
+        System.out.println("Test Is Exist Function");
+        System.out.println(linkedList.isExist(10));
+        System.out.println(linkedList.isExist(20));
+        System.out.println(linkedList.isExist(30));
+        System.out.println(linkedList.isExist(40));
+        System.out.println(linkedList.isExist(50));
     }
 
 }

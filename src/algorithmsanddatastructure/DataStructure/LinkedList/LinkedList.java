@@ -5,11 +5,13 @@
  */
 package algorithmsanddatastructure.DataStructure.LinkedList;
 
+import algorithmsanddatastructure.Node;
+
 /**
  *
  * @author Nada Badr El Deen
  */
-public class LinkedList {
+public class LinkedList<T> {
 
     Node Head;
     Node Tail;
@@ -29,21 +31,21 @@ public class LinkedList {
         return Length == 0;
     }
 
-    public void append(int Value) {
+    public void append(T Value) {
         Node NewNode = new Node(Value, null);
         if (Length == 0) {
             Head = NewNode;
         } else {
             Node TempNode = Head;
-            while (TempNode.Next != null) {
-                TempNode = TempNode.Next;
+            while (TempNode.getNext() != null) {
+                TempNode = TempNode.getNext();
             }
-            TempNode.Next = NewNode;
+            TempNode.setNext(NewNode);
         }
         Length++;
     }
 
-    public void insertAt(int Index, int Value) {
+    public void insertAt(int Index, T Value) {
         if (Index == 0 | Index > Length) {
             System.out.println("The Range of the list is From 1 to " + Length);
         } else {
@@ -51,30 +53,30 @@ public class LinkedList {
             Node ToBeInsertedNode = new Node(Value, null);
             Index -= 1;
             if (Index == 0) {
-                ToBeInsertedNode.Next = TempNode;
+                ToBeInsertedNode.setNext(TempNode);
                 Head = ToBeInsertedNode;
             } else {
                 int Cnt = 0;
                 while (Cnt < Index - 1) {
-                    TempNode = TempNode.Next;
+                    TempNode = TempNode.getNext();
                     Cnt++;
                 }
-                ToBeInsertedNode.Next = TempNode.Next;
-                TempNode.Next = ToBeInsertedNode;
+                ToBeInsertedNode.setNext(TempNode.getNext());
+                TempNode.setNext(ToBeInsertedNode);
             }
             Length++;
         }
     }
 
-    public boolean isExist(int Value) {
+    public boolean isExist(T Value) {
         Node TempNode = Head;
         boolean isExist = false;
         for (int i = 0; i < Length; i++) {
-            if (TempNode.Data == Value) {
+            if (TempNode.getData() == Value) {
                 isExist = true;
                 break;
             } else {
-                TempNode = TempNode.Next;
+                TempNode = TempNode.getNext();
             }
         }
         return isExist;
@@ -83,8 +85,8 @@ public class LinkedList {
     public void print() {
         Node TempNode = Head;
         for (int i = 0; i < Length; i++) {
-            System.out.println(TempNode.Data);
-            TempNode = TempNode.Next;
+            System.out.println(TempNode.getData());
+            TempNode = TempNode.getNext();
         }
     }
 
@@ -96,15 +98,15 @@ public class LinkedList {
             Node ToBeDeletedNode;
             Index--;
             if (Index == 0) {
-                Head = TempNode.Next;
+                Head = TempNode.getNext();
             } else {
                 int Cnt = 0;
                 while (Cnt < Index - 1) {
-                    TempNode = TempNode.Next;
+                    TempNode = TempNode.getNext();
                     Cnt++;
                 }
-                ToBeDeletedNode = TempNode.Next;
-                TempNode.Next = ToBeDeletedNode.Next;
+                ToBeDeletedNode = TempNode.getNext();
+                TempNode.setNext(ToBeDeletedNode.getNext());
             }
             Length--;
         }
